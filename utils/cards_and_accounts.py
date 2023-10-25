@@ -1,4 +1,8 @@
 def format_number(account):
+    """Преобразовывает номер карты в формат:
+    Visa Platinum 7000 79** **** 6361
+    или номер счета в формат:
+    Счет ** 9638"""
     formatted_number = ""
     if "Счет" in account:
         formatted_number = "Счет **" + account[-4:]
