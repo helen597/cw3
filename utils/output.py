@@ -1,4 +1,5 @@
 from utils import date_and_time
+from utils import cards_and_accounts
 
 def output(operation):
     # Выводим операции в формате
@@ -8,8 +9,10 @@ def output(operation):
     thedate = date_and_time.get_datetime(operation['date'])
     thedate = date_and_time.format_date(thedate)
     print(thedate, operation['description'])
-    if operation['from']:
-        print(operation['from'], '->', operation['to'])
+    operation_to = cards_and_accounts.format_number(operation['to'])
+    if 'from' in operation:
+        operation_from = cards_and_accounts.format_number(operation['from'])
+        print(operation_from, '->', operation_to)
     else:
-        print(operation['to'])
+        print(operation_to)
     print(operation['operationAmount']['amount'], operation['operationAmount']['currency']['name'], '\n')

@@ -5,8 +5,7 @@ from utils.output import output
 def test_output(operations_fixture):
     for operation in operations_fixture:
         assert output(operation) == None
-    with pytest.raises(KeyError):
-        output({
+        assert output({
         "id": 893507143,
         "state": "EXECUTED",
         "date": "2018-02-03T07:16:28.366141",
@@ -19,4 +18,4 @@ def test_output(operations_fixture):
         },
         "description": "Открытие вклада",
         "to": "Счет 37653295304860108767"
-    })
+    }) == None
