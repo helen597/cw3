@@ -1,6 +1,11 @@
 import pytest
 from utils.sort_operations import sort_operations
+from utils.sort_operations import get_operation_by_date
 
+
+def test_get_operation_by_date(operations_fixture):
+    assert get_operation_by_date(operations_fixture, "2019-03-23T01:09:46.296404") != {}
+    assert get_operation_by_date({}, "2019-03-23T01:09:46.296404") == {}
 
 def test_sort_operations(operations_fixture):
     assert sort_operations(operations_fixture, 3) == [{
