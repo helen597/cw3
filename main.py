@@ -19,8 +19,11 @@ def main():
     #14.10.2018 Перевод организации
     #Visa Platinum 7000 79** **** 6361 -> Счет ** 9638
     #82771.72 руб.
-    pass
-
+    operations = read_json.get_data_from_json(file_path)
+    executed_operations = filter_operations.get_executed_operations(operations)
+    sorted_operations = sort_operations.sort_operations(executed_operations, 5)
+    for operation in sorted_operations:
+        output.output(operation)
 
 
 if __name__ == '__main__':
